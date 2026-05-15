@@ -32,7 +32,8 @@ FROM alpine:3.21
 # ca-certificates is required for outbound HTTPS checks and SMTP TLS.
 RUN apk add --no-cache ca-certificates && \
     addgroup -S appgroup && \
-    adduser  -S -G appgroup appuser
+    adduser  -S -G appgroup appuser && \
+    mkdir -p /data && chown appuser:appgroup /data
 
 # Persist SQLite database outside the container.
 VOLUME ["/data"]
