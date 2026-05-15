@@ -1,14 +1,12 @@
 # syntax=docker/dockerfile:1
 
 # ─── Stage 1: Builder ────────────────────────────────────────────────────────
-FROM golang:1.24-alpine AS builder
+FROM golang:1.26-alpine AS builder
 
 ARG VERSION=dev
 
-# Install build-time dependencies.
-# git is required by go modules; templ generates HTML templates.
-RUN apk add --no-cache git && \
-    go install github.com/a-h/templ/cmd/templ@latest
+# git is required by some go module downloads.
+RUN apk add --no-cache git
 
 WORKDIR /src
 
@@ -18,9 +16,6 @@ RUN go mod download
 
 # Copy the full source tree.
 COPY . .
-
-# Generate templ templates before compiling.
-RUN templ generate
 
 # Produce a fully static binary. CGO is not needed because the project uses
 # modernc.org/sqlite (pure Go). -trimpath strips local paths from the binary;
