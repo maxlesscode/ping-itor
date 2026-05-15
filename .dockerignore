@@ -1,0 +1,26 @@
+# Version control
+.git
+.gitignore
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# SQLite databases
+*.db
+*.db-shm
+*.db-wal
+
+# Temporary files
+tmp/
+*.tmp
+
+# Test artifacts
+*_test.go
+testdata/
+
+# Editor and OS metadata
+.idea/
+.vscode/
+*.DS_Store

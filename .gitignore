@@ -1,0 +1,19 @@
+# Binaries
+ping-itor
+/dist/
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+
+# Environment
+.env
+
+# Go
+vendor/
+
+# IDE
+.idea/
+.vscode/
+*.swp
