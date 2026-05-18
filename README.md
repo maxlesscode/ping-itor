@@ -2,8 +2,6 @@
 
 A lightweight web uptime monitor. Add URLs from the dashboard, get a live status feed without reloading, and receive email alerts when a site goes down or recovers.
 
-![screenshot placeholder — add a screenshot of the dashboard here]
-
 ## Features
 
 - Checks every monitored URL every 60 seconds with a 10-second per-request timeout
